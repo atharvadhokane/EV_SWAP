@@ -1,18 +1,8 @@
 body{
-    background-color: black;
-}
-h1{
-    background-color: rgb(59, 58, 58);
-    color: red;
-    text-align: center;
-}
-h2{
-    color: aliceblue;
-    text-align: center;
-}
-#imager{
+    background-color: rgb(244, 245, 246);
+}#dead{
     display: block;
-    margin-right: auto;
     margin-left: auto;
-    width: 50%;
+    margin-right: auto;
+    width: 90%;
 }

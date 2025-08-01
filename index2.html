@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-repeat: repeat;
+        }
+
+        .nav {
+            height: 60px;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            padding-right: 10px;
+            justify-content: space-between;
+            color: aliceblue;
+
+        }
+
+        #logo {
+            height: 40px;
+        }
+
+        #searchbox {
+            background: grey;
+            border: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+            color: aliceblue;
+            width: 150px;
+            padding: 2px;
+            transition: width 0.3s ease;
+        }
+
+        #searchbox:focus {
+            width: 280px;
+            /* new width when clicked */
+        }
+
+        #searchbox::placeholder {
+            color: rgb(29, 27, 27);
+        }
+
+        .star {
+            background: transparent;
+            border: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+            color: aliceblue;
+        }
+
+
+
+
+
+        #sidebar {
+            width: max(150px, 15vw);
+            height: 680px;
+            background-color: transparent;
+
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            z-index: 1;
+            position: sticky;
+            top: 20px;
+
+            button {
+                background: transparent;
+                border: none;
+                color: inherit;
+                font: inherit;
+                cursor: pointer;
+                padding: 10px;
+            }
+        }
+
+        .mainbody {
+            display: flex;
+            gap: 200px;
+        }
+
+        .floatbar {
+            display: flex;
+            justify-content: center;
+
+            justify-content: center;
+            position: sticky;
+            top: 60px;
+
+            padding-bottom: 50px;
+
+            z-index: 1000;
+
+            button {
+                height: 40px;
+                width: 150px;
+                margin: 0%;
+                padding: 0%;
+                background-color: white;
+
+
+                /* stick under the nav bar */
+                z-index: 1000;
+
+            }
+        }
+
+        .Limosuine {
+            display: grid;
+            grid-template-rows: 500px 500px 500px;
+            grid-template-columns: 450px 450px;
+        }
+
+        .Limosuine img {
+            height: 300px;
+        }
+
+        .contentlimo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contentlimo:hover {
+            background-color: rgb(233, 234, 235);
+        }
+
+        .SUV {
+            display: grid;
+            grid-template-rows: 500px 500px;
+            grid-template-columns: 450px 450px;
+        }
+
+        .contentsuv {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contentsuv img {
+            height: 300px;
+        }
+
+        .contentsuv:hover {
+            background-color: rgb(233, 234, 235);
+        }
+
+        .footer {
+            height: 70px;
+            background-color: gray;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .footer img {
+            height: 20px;
+        }
+
+        .Roadsters {
+            text-align: center;
+            height: 500px;
+            width: 450px;
+
+            img {
+                height: 300px;
+            }
+        }
+
+        .Roadsters:hover {
+            background-color: rgb(233, 234, 235);
+        }
+
+
+
+        .amglimo {
+            display: flex;
+        }
+
+        .contentamglimo,
+        .contentamgsuv {
+            text-align: center;
+            height: 500px;
+            width: 450px;
+
+            img {
+                height: 300px;
+            }
+        }
+
+        .contentamglimo:hover {
+            background-color: rgba(111, 114, 114, 0.3);
+        }
+
+        .amgsuv {
+            display: grid;
+            grid-template-columns: 450px 450px;
+            grid-row: 500px;
+        }
+
+        .contentamgsuv {
+            display: flex;
+            flex-direction: column;
+            width: 450px;
+            height: 500px;
+        }
+
+        .contentamgsuv:hover {
+            background-color: rgba(111, 114, 114, 0.3);
+        }
+
+        .contentamgcoupe {
+            display: flex;
+            flex-direction: column;
+            width: 450px;
+            height: 500px;
+            align-items: center;
+        }
+
+        .contentamgcoupe:hover {
+            background-color: rgba(111, 114, 114, 0.3);
+        }
+
+        #amg,
+        #may {
+            display: none;
+        }
+
+        .maylimo {
+            display: grid;
+            grid-template-columns: 450px;
+            grid-template-rows: 500px;
+        }
+
+        .contentmaylimo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 450px 450px;
+            height: 500px;
+            grid-row: 1/2;
+            grid-column: 1/2;
+
+            img {
+                width: 450px;
+            }
+
+            .contentmaysuv:hover {
+                background-color: rgba(111, 114, 114, 0.3);
+            }
+        }
+
+        .maysuv {
+            display: grid;
+            grid-template-columns: 450px;
+            grid-template-rows: 500px;
+        }
+
+        .contentmaysuv {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 450px 450px;
+            height: 500px;
+            grid-row: 1/2;
+            grid-column: 1/2;
+
+            img {
+                width: 450px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="toppart">
+        <div class="nav">
+
+            <span><input id="searchbox" type="text" placeholder="Search your term">
+            </span>
+            <div class="Brandname">
+                <img id="logo"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIIXU-VL8yV4VU_oPCHT0xHUea4JI1_9xW6A&s"
+                    alt="">
+                <span>&ensp; Mercedes-Benz</span>
+            </div>
+        </div>
+        <div class="floatbar">
+            <button onclick="showSection('benz')">Mercedes-Benz</button>
+            <button onclick="showSection('amg')">///AMG</button>
+            <button onclick="showSection('may')">May-Bach</button>
+        </div>
+        <div class="mainbody">
+            <div id="sidebar">
+                <button id="Limosuine" onclick="tuggle('cont1')">Limosuine</button>
+                <button id="Suv" onclick="tuggle('cont2')">SUV</button>
+                <button id="Roadsters " onclick="tuggle('cont3')">Roadsters</button>
+                <button id="Electric">Electric</button>
+            </div>
+            <div class="collection">
+                <div id="benz" class="section">
+                    <hr>
+                    <h3 style="text-align: center;">Limosuine</h3>
+                    <hr>
+
+                    <div class="Limosuine cont1">
+                        <div class="contentlimo">
+                            <p>A-Class Sedan</p><img
+                                src="https://assets.oneweb.mercedes-benz.com/iris/iris.png?COSY-EU-100-1713d0VXqaW7qtyO67PobzIr3eWsrrCsdRRzwQZg9pZbMw3SGtGaFtsd2sDcUfp8qXGEunSJ0l3ofOB2NMmbApjtwI5ux6YQC30M1kzNBzkm7jAc3hKViSF%25vq4vZyLRgY6Yax%25XqrH1yCtn8w0zEoiZBJYM4FvIuTg9LYV6PDaSmSeWH0RtsdB%25ycJtTjqNwYYax4JOroYfV8nMrgOfoiZC7%25M4F8SQTg9ihk6PDePoSeWsKMtsdUY%25cUaqKDTb32VXqapL0h9f%25XEd9BBpxb1loE1JnwxV4V%25d%25CWLH59zW0uB16E1=&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from₹ 46,05,000.00 </p>
+                        </div>
+                        <div class="contentlimo">
+                            <p>CLA</p><img
+                                src="https://media.oneweb.mercedes-benz.com/images/static/v1/11029/0/5d/1c1bed30bbbceb39d0aa35497d9f5fa972b12.png?im=Resize%2Cwidth%3D610"
+                                alt="">
+                            <p>Upcoming</p>
+                        </div>
+                        <div class="contentlimo">
+                            <p>C-Class Sedan</p><img
+                                src="https://assets.oneweb.mercedes-benz.com/iris/iris.png?COSY-EU-100-1713d0VXqaSFqtyO67PobzIr3eWsrrCsdRRzwQZgk4ZbMw3SGtGyWtsd2HdcUfp8qXGEubmJ0l3ItOB2NQnbApjtwI5uVQDQC3qvTkzNwTVm7jZ7ZhKVFKh%25vq9vlyLRDG6YaxWbSrH1KJtn8wv8noiZLqZM4FGIlTg90QO6PDBcpSeWAtutsd5cxcUfKLjXGEvTSJ0lLCxOB2Pr2bApeARI5usf2QC3UkrkzNGm6m7j0aohKVBHV%25vqA8lyLRiXJYnymdEWuOOB2znobQOxf5Ikb7oxQC3sE3kzNetDm7jCeShKVz0M%25vq7JdyLRlNpYaxH0hrH18Bln8wiA4oiZ45IM4FgKFTg735wrcldu63eZTmWk9Q6DF1ssfjcVWyDVS%25qjuauQFQ0ZzKG1BZeEsVnDV=&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from ₹ 59,40,000.00 </p>
+                        </div>
+                        <div class="contentlimo">
+                            <p>EQS Sedan</p><img
+                                src="https://media.oneweb.mercedes-benz.com/images/dynamic/europe/IN/297144/804/iris.png?q=COSY-EU-100-1713d0VXq0hdqtyO67PobzIr3eWsrrCsdRRzwQZgk4ZbMw3SGtlKStsd2HtcUfp8qXGEuiBJ0l3IrOB2NzObApRnCI5ux5DQC31SrkzNwL6m7jA6ohKV5SQ%25vqCv%25yLRzA2Yax7oxrH1KMun8wsOcoiZUboM4FGKuTg906O6PDBSqSeWA02tsd5%25QcUfCmfXGEvTSJ0lL6xOB2aSRbApHYpI5usouQC3UC1kzNGtNm7j0O3hKVB%25t%25vqA8TyLRiXJYnydjHroY4Jtn8wzOxoiZCkuM4F8CJTg9izk6PD4%256SeWg%25ptsdRPpcUfGLqXGHRvW6INpqJRBOaB2vEyJlfDADSjSiNsG8u4NLwa2ITvU%25&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from₹ 1,62,70,000.00 </p>
+                        </div>
+                        <div class="contentlimo">
+                            <p>E-Class Sedan Long</p><img
+                                src="https://media.oneweb.mercedes-benz.com/images/dynamic/europe/IN/214161/805/iris.png?q=COSY-EU-100-1713d0VXqahFqtyO67PobzIr3eWsrrCsdRRzwQZUnRZbMw3SGtlehtsd2vtcUfp8fXGEubmJ0l3ItOB2NS1bApj7pI5uVKDQC31CWkzNwP9m7jA7mhKV50L%25vqCuqyLRgc6YaxP5qrH1eMdn8wsocoiZBkIM4FAm2Tg95Yn6PDCruSeWHmjtsd8s3cUfiFNXGE49dJ0lgOhOB2PbnbApe7yI5usK2QC3vT6khQZ27m%25kL6ZhKV0KE%25vqGUDyLRKLRYaxvaErH1p96n8wi8yoiZ45pM4FgKFTg735wrcldu63eoieUl9Q6DF1s1n2nvligKfLlCVzWcY54I&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from₹ 79,50,000.00 [1]</p>
+                        </div>
+                        <div class="contentlimo">
+                            <p>S-Class</p><img
+                                src="https://assets.oneweb.mercedes-benz.com/iris/iris.png?COSY-EU-100-1713d0VXq0WeqtyO67PobzIr3eWsrrCsdRRzwQZv9IZbMw3SGtGyStsd2vtcUfp8cXGEubYJ0l36xOB2NS5bApj7bI5uVKDQC31MrkzNwTbm7jZ7fhKVFsM%25vq9UkyLRDO6Yax7XhrH1KJin8wv8noiZL7IM4FaSjTg9Hhn6PD8%256SeWAmItsd5spcUfCONXGEzbXJ0l7DhOB2KWcbApvIXI5uLQDQC3ig7kzN4PZm7j06mhKVBKF%25vqAJqyLR53VYaxCkYrH1zntn8w7oboiZKeXM4FvswTg9wtn6PDGP6SeW0h%25tXSMNV31yyLRiXJYnydjHroY4Jdn8wzOyoiZC5lM4F8CJTg9jx26PDePoSeWsKjtsdUHVcUaqKDTb32VXq0hV0A3f%25XEd9BBpxb1loE1JnwxV4V%25d%25CWLH59zW0uB16E1=&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from₹ 1,79,10,000.00 [</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <h3 style="text-align: center;">SUV</h3>
+                    <hr>
+                    <div class="SUV" cont2>
+                        <div class="contentsuv">
+                            <p>G-Class</p><img
+                                src="https://media.oneweb.mercedes-benz.com/images/dynamic/europe/IN/465600/X24/iris.png?q=COSY-EU-100-1713d0VXqr8gqtyO67PobzIr3eWsrrCsdRRzwQZgk4ZbMw3SGtlaWtsd2H%25cUfgUfXGEzymJ0l7%25fOB2XgRbApJkyI5us5xQC3UkTkzNGLdm7j0M3hKVHtc%25YhD3Lyr%258cDYax4j8rH1sItn8wUI2oiZGBEM4F0APTg9Ben6PDAs6SeWZSjtsdF63cUf99kXGEB6SJ0lIMhOB2iMwbAp0PyI5uBcDQC3AiZkzN5Obm7jd03hKVfzh%25vqhrdyLRmYDYaxh4SrH1lCin8w2TyoiZpQIM4F6CFTg9hhO6PKNCZnX2f3SNYL5Z3HDkSW9wUwopoL24PvEa2zq7dXrCgQ&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from₹ 3,00,00,000.00</p>
+                        </div>
+                        <div class="contentsuv">
+                            <p>GLS</p><img
+                                src="https://assets.oneweb.mercedes-benz.com/iris/iris.png?COSY-EU-100-1713d0VXqaY7qtyO67PobzIr3eWsrrCsdRRzwQZg9pZbMw3SGtGyWtsd2vGcUfp8cXGEuiRJ0l3otOB2NW5bApjtwI5uVKDQC30MrkzNBzkm7jAGfhKV5YE%25vqCJkyLRzYXYaxPXWrH1eJtn8wsTnoiZUkdM4FGTJTg906n6PDBSqSeWTK9tsd6JQcUfKLcXGEvaVJ0lL4xOB2Pr2bApeARI5usmZQC3Uh7kzNGtNm7j0OvhKVB%25t%25vqA89yLR5i2YaxC4qrH1qJtn8wRQSoiZeIQM6oY2ulVkkzNL6Sm%25kFpKhymaSF%25vqBvTyLR0GWYaxvXqrH1LHun8waAfoiZHqZM4FgIQTg9Pgn6PDe7oSeWstMtsLV79MOuljcVLHv5XWdhcfWF002ROxEnfxXr1RjijhWh5DvaAFCDGp0xTfx=&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from₹ 1,33,90,000.00 </p>
+                        </div>
+                        <div class="contentsuv">
+                            <p>GLE</p><img
+                                src="https://assets.oneweb.mercedes-benz.com/iris/iris.png?COSY-EU-100-1713d0VXqaSFqtyO67PobzIr3eWsrrCsdRRzwQZUnRZbMw3SGtlaWtsd2HVcUfpOkXGEunSJ0l36xOB2NzFbApRAyI5uGoYQC30CQkzNBUdm7jA2mhKV5%25t%25vq4t9yLRgc6YaxPNprH1entn8wso3oiZUMdM4FnCwTg9otO6PDC76SeWzK3tsd7oTcUfi%25fXGE4GjJ0lgIAOB2PS5bApeIoI5usKxQC3UvWkzNpTnm7jaSthymI9WFlccUfAyYXOcVD0JbX5YVOB2g8cbAp4ixI5uBo2QC3ACWkzN5Pnm7jCGohKVzpV%25vqEaryLRac6YaxHXJrH18H%25n8wiAyoiZ451M4zuA1YtEWpTuzKCP6ZFIT9ZxeedNtjD%259j6hVNpLpIZIGwC7Ux0wPfejr9j=&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from₹ 99,00,000.00 </p>
+                        </div>
+                        <div class="contentsuv">
+                            <p>EQS SUV</p><img
+                                src="https://media.oneweb.mercedes-benz.com/images/dynamic/europe/IN/296644/805/iris.png?q=COSY-EU-100-1713d0VXq0W7qtyO67PobzIr3eWsrrCsdRRzwQZQ9vZbMw3SGtxa2tsd1JpcUfwFuXGEZT3J0l30xOB2NB5bApjiVI5uVeIQC3qsFkzNRUKm7jxyohKV1YQ%25vqwr%25yLRZOmYaxFNhrH19jin8wDhyoiZW%25pM4FdslTg9fUn6PDEG6SeWl0Wtsd2B%25cUfN%25yXGEjGwJ0lVHhOB2q82bApRiwI5ux4zQC31SrkzNwt9m7jZ2DhKVFpE%25vq98cyLRzc6Yax7aYrH1KCtn8wvz4oiZL6ZM4FaSjTg9HY36PD8SmSeWAmutsd5hQcUfC8qXGEzbXJ0l7oNOB2KWFbApvIyI5uLQIQC3akWkzNH6nm7j8MjhKVksN%25vqmucyLRsGWYaxUkhrH1Gmln8w0hEoiZBMlM4FAOrTg9LQ36PDaPpSeWHa3tsd8JGcUfiOjXGE4nEJ0lgDVOB2PS%25bApetCI5usc2QC3UkQkzNGm6m7j0aZhKVBHM%25vqA8ayLR5i2YaxC4qrH1qJ%25n8wP8yoiZekXM4FsmMTg9Uhk6PDGmhSc63ZstXS0hQcUf8%25WXGEHaVJ0lUYfOB2GB2bAp0A9I5uB4xQC3AgrkzN5Unm7jCyfhKVzYt%25vq7J%25yLRKJcYaxvODrH1Lben8wabdoiZHsuM4FNIJTg9j006PDekbSeWseutsdUsTcUfGUyXGE0aRJ0lBIrOB2AMEbA4wHEcmqN1IwCQbE3HpnIu2fzfXRXPq0Agjeq89i3mtHBr&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from ₹ 1,28,00,000.00 </p>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                    <hr>
+                    <h3 style="text-align: center;"> Roadsters</h3>
+
+                    <hr>
+                    <div class="Roadsters cont3">
+                        <p>CLE Cabriolet</p><img
+                            src="https://assets.oneweb.mercedes-benz.com/iris/iris.png?COSY-EU-100-1713d0VXq0WFqtyO67PobzIr3eWsrrCsdRRzwQZUnRZbMw3SGtGyWtsd2HdcUfp8qXGEubmJ0l3ItOB2NQnbApjtwI5uVKMQC31C1kzNwzdm7jZeohKVFsW%25vqCtTyLRzcyYax7oxrH1Kj1n8wsOcoiZUidM4FGTlTg90k26PDMI6SeWzXRtsd7YNcUfKM6XGEv5RJ0lgYlOB2PBqbApedlI5usQMQC3UvrkzNGLNm7j0afhKVHXt%25vq8cXyr%25kWfDpJJ0lCrnOIJRdAbQOznRI5uefuQC3PS9kzN5P6m7jdA9hKVvsW%25vqLUayLRaARYaBEUVmMDZfrE8OYTwHxXr1RjiiF2MpwQ1pnIu2fzfXRXPq0Agjeq89iph1p=&imgt=P27&bkgnd=9&pov=BE040%2CDZO&uni=m&width=610&crop="
+                            alt="">
+                        <p>Starting from ₹ 1,28,00,000.00 </p>
+
+                    </div>
+                </div>
+                <div id="amg" class="section">
+                    <hr>
+                    <h3 style="text-align: center;">Limosuine</h3>
+                    <hr>
+                    <div class="amglimo">
+                        <div class="contentamglimo">
+                            <p>C-Class Sedan</p><img
+                                src="https://assets.oneweb.mercedes-benz.com/iris/iris.png?COSY-EU-100-1713d0VXqNEFqtyO67PobzIr3eWsrrCsdRRzwQZgk4ZbMw3SGtlajtsd2JQcUfpOyXGEuTRJ0l3OZOB2qrubApRARI5ux5IQC31CWkzNwPnm7jZcohKV5Kh%25vqCuqyLRgcDYaxPXSrH1eHDn8wsTfoiZUMEM4FGTjTg95hp6PDCroSeWznUtsd7BVcUfi%25fXGE4GjJ0lgDfOB2PSObApeIyI5usQMQC3UvrkzNGLNm7j0afhKVHSL%25vq8cXyr%25kWfDpJJ0lCrnOIJRdAbQOznRI5uefuQC3PEdkzN5lwm7jCl6hKVzTS%25vqE3JyLRaGmYaxH08rH18C1n8wioxoiZ4epM4FmIuTg735wrcldu63eZTm9P9Q6DF1ssfjcVWyDVS%25qjuauQFQ0ZzKG1BZeEsVnDV=&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from ₹ 1,28,00,000.00 </p>
+                        </div>
+                        <div class="contentamglimo">
+                            <p>S-Class</p><img
+                                src="https://assets.oneweb.mercedes-benz.com/iris/iris.png?COSY-EU-100-1713d0VXqrEFqtyO67PobzIr3eWsrrCsdRRzwQZQ9vZbMw3SGtlKStsd2HtcUfpOyXGEuTRJ0l36AOB2NbcbApj7bI5uVKDQC31MOkzNwTKm7jZ7fhKVFsM%25vq9JTyLRzc6Yax7X8rH1KHrn8wvzyoiZL7gM4FaKwTg90QO6PDBPlSeWAXutsd5cTcUfCX1XGEvaBJ0lL6tOB2Pr1bApeARI5usf2QC3UX3kzNGJum7j0hohKVB%25t%25vqA8TyLR5iHYaxC4qrH1qM%25n8wPbIoTnylpEjQQC3vT6khQZ27m%25kL6ZhKV00E%25vqGugyLRKG6Yax2virH18HOn8wiA4oiZ47pM4FgTwTg735wrcldu63eIue919Q6DF1ssfjcVWyDVS%25qjuauQFQ0ZzKG1BZeEsVnDV=&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from ₹ 3,34,00,000.00 </p>
+                        </div>
+                    </div>
+                    <hr>
+                    <h3 style="text-align: center;">SUV</h3>
+                    <hr>
+                    <div class="amgsuv">
+                        <div class="contentamgsuv">
+                            <p>GLC Coupé</p>
+                            <img src="https://assets.oneweb.mercedes-benz.com/iris/iris.png?COSY-EU-100-1713d0VXqNEFqtyO67PobzIr3eWsrrCsdRRzwQZgk4ZbMw3SGtxX2tsd1opcUfp%25kXGEuy3J0l3HNOB2Ng2bApjPwI5uVmYQC3qhOkzNR%25km7jxcIhKV1XL%25vqwJjyLRZQfYaxFrprH19grn8wfOFoiZEiEM4Fl4MTg92ge6PDpPmSeWuKItsd3vpcUfN8yXGEjbRJ0lVohOB2qM1bApRdwI5uxfDQC31EjkzNBzkm7jAeohKV5YV%25vqCJcyLRz3RYax7kErH1eJdn8wsOcoiZUidM4FGCuTg90626PDBSqSeWTK9tsd6B3cUfKLcXGEvaVJ0lL6tOB2aS5bApH7wI5u8rIQC3UMFkzNGzwm7j0yvhKVBXM%25vqAujyLR5QyYaxCk8rH1znOn8w7PfoiZKeXM4FvsMTg9LU96PDaGqSeWFmutsd9hQcUfDO6XGE5ymJ0lC0tOB2zMnbAp7oMIkbX1ZxWTTg9Ukm6tTuweSc6GmutsdHZdcUfaFDXGEsGwJ0lU4xOB2GQFbAp0koI5uB6IQC3AE1kzN5Jnm7jCSwhKVz8d%25vq7ptyLRKScYax2XSrH1pKnn8wiOcoiZ4iEM4Fg4QTg9Pzn6PDe7sSeWsaWtsdUHVcUfGOqXGE0bwJ0lB6VOB2AbEbApTnwI5gZ8lXhRjwQZz3BUuCuoQ3pE77V9hDNt3DkSW9wUwopoL24PvEa2zq7DJ3D=&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from
+
+                                ₹ 1,11,80,000.00</p>
+                        </div>
+                        <div class="contentamgsuv">
+                            <p>GLE Coupé</p>
+                            <img src="https://media.oneweb.mercedes-benz.com/images/dynamic/europe/IN/167361/805/iris.png?q=COSY-EU-100-1713d0VXqrpeqtyO67PobzIr3eWsrrCsdRRzwQZg9pZbMw3SGtlaWtsd2HVcUfpOkXGEunSJ0l36xOB2qB%25bApUnyI5uG5IQC30EQkzNBm6m7j86ZhKViSM%25vq4vZyLRgnyYaxPrSrH1enun8wYAxoiZr6XM4FAC2Tg95Yn6PDakNSeWHeutsd8JGcUfiMfXGE4TBJ0lgOrOB2PzqbApe79I5uloYQC3vC7kzNL6Sm%25kFpKhymaSM%25vqBrayLR03pYaxvaprH1LBtn8waVfoiZHqZM4FNGkTg9PQk6PDePqSeWsKMtsdUvGcUfGONXGE0bRJ0lBIZOB2AMqbAp5IXI5uCQ2QCPFi2J%25xVZkFPsgGvx3MkNulKlO1OsxACeqUx4Wgj%25Xi5o&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from
+
+                                ₹ 1,87,50,000.00 </p>
+                        </div>
+                        <div class="contentamgsuv">
+                            <p>G-Class</p>
+                            <img src="https://media.oneweb.mercedes-benz.com/images/dynamic/europe/IN/465250/X24/iris.png?q=COSY-EU-100-1713d0VXqbWFqtyO67PobzIr3eWsrrCsdRRzwQZgk4ZbMw3SGtlaWtsd2H%25cUfgUfXGEzymJ0lcIhOB2PBqbApeIoI5usKDQC3UnpkzNL6Sm%25kFpKhymaSF%25vq83kyLRPO6YaxeUhrH1sidn8wqn2oiZRrEM4FShlTg97xB6PD4rsSeWqHhtsdRP3cUfx9kXGEciYJ0ltOVOB2AbEbApwPCI5uZmJQC3mg3kzNttnm7j2TIhKUWP3IrZxD%25WO0gGfAVS%25qjuauQFQ0ZzKG1BZeEsRrbP76&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from
+
+                                ₹ 3,64,40,000.00</p>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <h3 style="text-align: center;">Coupé</h3>
+                    <hr>
+                    <div class="amgcoupe">
+                        <div class="contentamgcoupe">
+                            <p>Mercedes-AMG GT 4-door Coupé</p>
+                            <img src="https://assets.oneweb.mercedes-benz.com/iris/iris.jpg?COSY-EU-100-1713d0VXqrWFqtyO67PobzIr3eWsrrCsdRRzwQZ6TfZbMw3SGtGyStsd2J%25cUfpMqXGEjymJ0lVYpOB2qBqbApRAXI5uxfJQC30h7kzNHTwm7j86ohKViKw%25vq4yjyLR5cyYaxCaWrH1zjRn8w7hnoiZKMIM4FvslTg9LUO6PDaGqSeW0mRtsdB%25ycJtTjqNwYYax4JOroYfV8nMrgOfoiZ7MEM4FzRVTg9izO6PD4cmSeWqietsdUvGcUfGMWXGE0JdJ0loYAOBi1aftkV3xb15I7fD12rbpldCCNZkFu6pFIT9ZxexrlrKE847dvE5jCFcpF=&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from
+
+                                ₹ 3,34,00,000.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="may" class="section">
+                    <hr>
+                    <h3 style="text-align: center;">Limosuine</h3>
+                    <hr>
+                    <div class="maylimo">
+                        <div class="contentmaylimo">
+                            <p>Mercedes-Maybach S-Class</p>
+                            <img src="https://media.oneweb.mercedes-benz.com/images/static/v1/9785/9/6a/e6edd5b77fc25b2a65c654ac15c36ebb1adee.png?im=Resize%2Cwidth%3D610"
+                                alt="">
+                            <p>Starting from ₹ 3,34,00,000.00</p>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <h3 style="text-align: center;">SUV</h3>
+                    <hr>
+                    <div class="maysuv">
+                        <div class="contentmaysuv">
+                            <p>GLS</p>
+                            <img src="https://media.oneweb.mercedes-benz.com/images/dynamic/europe/IN/167987/805_055/iris.png?q=COSY-EU-100-1713d0VXqbSeqtyO67PobzIr3eWsrrCsdRRzwQZg9pZbMw3SGtGyjtsd2HVcUfpOkXGEunSJ0l3DAOB2NS1bApj79I5uxoDQC31CrkzNwL6m7jA6ohKV5SQ%25vqCv%25yLRzAHYax75prH1KMun8wvQyoiZLkoM4FaRMTg9H6k6PDBkpSeWAmItsd5JtcUfCXkXGEzJSJ0l7OZOB2X8EbApJkyI5uO6qQC3igwkzN4U9m7jgOFhKVBSW%25vqAv9yLR5ORYaxCkhrH1zm1n8w7h4oiZKMIM4FvslTg9LUV6PDaGFSeWFmItsd9hTcUfD%25cXGE5GBJ0lCrnOIJRdAbQOznXI5ua6IQC3sgOkzNePZm7jC7fhKVzsF%25vq7UTyLRK3mYaxvNxrH1pjrn8wiOcoiZ4iYM4FgKwTg9Ph26PDeSoSevjzFoJpENtjvaKAWsWmtdDZGZMuMapgeLlHp7RKfJnzPk&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=610&crop="
+                                alt="">
+                            <p>Starting from ₹ 3,34,00,000.00</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer">
+            <a href="https://www.facebook.com/MercedesBenzIndia"><img src="1384005.png" alt=""></a>
+            <a href="https://x.com/mercedesbenzind"><img src="X.png" alt=""></a>
+            <a href="https://www.youtube.com/c/MercedesBenzInd"><img src="youtube.png" alt=""></a>
+            <a href="https://www.instagram.com/mercedesbenzind/"><img src="insta.png" alt=""></a>
+            <a href="https://www.linkedin.com/company/mercedes-benz-india/"><img src="linkedin.png" alt=""></a>
+            <p style="font-size: x-small;"> © 2024. Mercedes-Benz India Pvt. Ltd. All Rights Reserved (provider)
+            </p>
+        </div>
+        <script>
+            function togglesidebar() {
+                var list = document.getElementById("sidebar");
+                if (list.style.display === "none") {
+                    list.style.display = "flex";
+                } else {
+                    list.style.display = "none";
+                }
+            }
+        
+
+
+            function showSection(sectionId) {
+
+                const sections = ['benz', 'amg', 'may'];
+
+
+                sections.forEach(id => {
+                    document.getElementById(id).style.display = (id === sectionId) ? 'block' : 'none';
+                });
+
+
+                if (sectionId === 'amg') {
+                    document.body.style.backgroundImage = "url('carbon.png')";
+                    document.body.style.backgroundSize = "cover";
+                    document.body.style.color = "white";
+
+                } else if (sectionId === 'may') {
+                    document.body.style.backgroundImage = "url('may.jpg')";
+                    document.body.style.backgroundRepeat = "repeat";
+
+                    document.body.style.color = "black";
+                } else {
+                    document.body.style.backgroundImage = "none";
+                    document.body.style.color = "black"
+                }
+            }
+
+
+            showSection('benz');
+
+        </script>
+</body>
+
+</html>

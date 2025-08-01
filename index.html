@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0%;
+            padding: 0%;
+        }
+
+        .mainbody video {
+            z-index: 1;
+            display: inline;
+            flex-grow:1;
+            width: 100%;
+            height: auto;
+
+        }
+
+        .nav {
+            height: 60px;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            padding-right: 10px;
+            justify-content: space-between;
+            color: aliceblue;
+        }
+
+        #logo {
+            height: 40px;
+        }
+
+        .Brandname {
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        #searchbox {
+            background: grey;
+            border: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+            color: aliceblue;
+            width: 150px;
+            padding: 2px;
+            transition: width 0.3s ease;
+        }
+
+        #searchbox:focus {
+            width: 280px;
+            
+        }
+
+        #searchbox::placeholder {
+            color: rgb(29, 27, 27);
+        }
+
+        .star {
+            background: transparent;
+            border: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+            color: aliceblue;
+        }
+
+        #sidebarbutton {
+            background: transparent;
+            border: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+            color: aliceblue;
+
+        }
+
+        .mainbody {
+
+            display: flex;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 700px;
+            background-image: url(https://www.hdcarwallpapers.com/walls/mercedes_amg_gt_r_2018_4k-HD.jpg);
+
+        }
+
+        #sidebar {
+            width: max(150px, 10vw);
+            height: 680px;
+            background-color: rgba(5, 4, 4, 0.4);
+            color: aliceblue;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            z-index: 1;
+            position: relative;
+
+            button {
+                background: transparent;
+                border: none;
+                color: inherit;
+                font: inherit;
+                cursor: pointer;
+                padding: 10px;
+            }
+        }
+
+
+        .Slogan {
+            display: flex;
+            font-size: 4em;
+            justify-content: center;
+            text-align: center;
+            padding: 50px;
+            width: 100vw;
+
+        }
+
+        .line1 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .line1in {
+            display: grid;
+            grid-template-columns: 300px 300px 300px;
+            grid-template-rows: 600px 600px;
+            gap: 23px;
+            padding: 50px;
+            position: relative;
+
+            button {
+                background-color: #0078d6;
+                width: 130px;
+                border: 1px solid #0078d6;
+                color: azure;
+                height: 40px;
+                margin: 20px;
+            }
+
+        }
+
+
+        .element1 {
+            grid-column: 1/3;
+            position: relative;
+        }
+
+        .element2 {
+            grid-column: 3/4;
+            position: relative;
+        }
+
+        .element3 {
+            grid-column: 1/2;
+            grid-row: 2/3;
+            position: relative;
+        }
+
+        .element4 {
+            grid-column: 2/3;
+            grid-row: 2/3;
+            position: relative;
+        }
+
+        .element5 {
+            grid-column: 3/4;
+            grid-row: 2/3;
+            position: relative;
+        }
+
+        .element1 img {
+            width: 623px;
+            z-index: -1;
+            position: relative;
+        }
+
+        .line1img {
+            width: 300px;
+            z-index: 0;
+            position: relative;
+
+        }
+
+        .part2title {
+            padding-top: 30px;
+            font-size: xxx-large;
+            padding-left: 30px;
+        }
+
+        .layer1 {
+            z-index: 1;
+            position: absolute;
+            height: 600px;
+            width: 623px;
+            background: linear-gradient(to bottom, transparent, transparent, transparent, black, black, black 100%);
+            grid-column: 1/3;
+            color: aliceblue;
+            display: flex;
+            flex-direction: column-reverse;
+            
+
+            
+
+        }
+        .layer2{ 
+            z-index: 1;
+            position: absolute;
+            height: 600px;
+            width: 300px;
+            background-image: linear-gradient(transparent,transparent ,transparent,black, black );
+            grid-column: 3/4;
+            color: aliceblue;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        .layer3{
+            z-index: 1;
+            position: absolute;
+            height: 600px;
+            width: 300px;
+            background-image: linear-gradient(transparent,transparent ,transparent,black, black );
+            grid-column: 1/2;
+            grid-row: 2/3;
+            color: aliceblue;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        .layer4{ z-index: 1;
+            position: absolute;
+            height: 600px;
+            width: 300px;
+            background-image: linear-gradient(transparent,transparent ,transparent,black, black );
+            grid-column: 2/3;
+            grid-row: 2/3;
+            color: aliceblue;
+            display: flex;
+            flex-direction: column-reverse;}
+            .layer5{  z-index: 1;
+            position: absolute;
+            height: 600px;
+            width: 300px;
+            background-image: linear-gradient(transparent,transparent ,transparent,black, black );
+            grid-column: 3/4;
+            grid-row: 2/3;
+            color: aliceblue;
+            display: flex;
+            flex-direction: column-reverse;}
+            
+
+        .part3 {
+            width: 946px;
+            margin: auto;
+
+            p {
+                font-size: x-large;
+                font-weight: 500;
+            }
+
+            button {
+                background-color: white;
+                border: 1px solid black;
+                padding: 8px;
+                margin-right: 10px;
+            }
+        }
+
+        .samplecars {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            align-items: center;
+        }
+
+        .samplecarslist {
+            width: 350px;
+            height: 100px;
+            background-image: linear-gradient(140deg, #979696 0%, #b6b5b5 50%, white 75%);
+            padding-left: 20px;
+
+            img {
+                height: 90px;
+            }
+
+
+        }
+
+        .part4 {
+            padding-top: 40px;
+            margin: auto;
+            width: 1300px;
+            padding-bottom: 40px;
+
+            .title {
+                font-weight: 500;
+                font-size: xx-large;
+            }
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+
+            p {
+                font-size: x-small;
+            }
+
+            button {
+                background-color: white;
+                padding: 4px;
+                border: 1px solid black;
+            }
+
+
+        }
+
+        .servicesblock img {
+            width: 400px;
+
+        }
+
+        .servicesblock p:nth-of-type(1) {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .part5 {
+            display: flex;
+            justify-content: center;
+            padding-top: 30px;
+        }
+
+        .grid5 {
+            margin: auto;
+            display: grid;
+            grid-template-columns: 450px 450px;
+            grid-template-rows: 450px 450px 450px;
+            justify-content: center;
+            align-items: center;
+            color: #555454;
+        }
+
+        .grid5 button {
+            background-color: #0078d6;
+            width: 100px;
+            border: 1px solid #0078d6;
+            color: azure;
+            height: 40px;
+            margin: 20px;
+        }
+
+        .part5element img {
+            width: 450px
+        }
+
+        .part52,
+        .part53,
+        .part56 {
+            padding: 19px;
+        }
+
+        .part6 {
+            margin: auto;
+        }
+
+        .last {
+            display: flex;
+            width: 1100px;
+            margin: auto;
+            justify-content: space-between;
+            padding: 30px;
+        }
+
+        .box {
+            height: 30px;
+            background-color: white;
+            border: #555454 1px solid;
+            width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer {
+            height: 70px;
+            background-color: gray;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding: 10px;
+        }
+        .footer img{ height: 20px;}
+    </style>
+</head>
+
+<body>
+    <div class="toppart">
+        <div class="nav">
+            <button id="sidebarbutton" onclick="togglesidebar()">☰</button>
+            <span><input id="searchbox" type="text" placeholder="Search your term">
+                <button class="star" onclick="video()">&emsp;★</button></span>
+            <div class="Brandname">
+                <img id="logo"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIIXU-VL8yV4VU_oPCHT0xHUea4JI1_9xW6A&s"
+                    alt="">
+                <span>&ensp; Mercedes-Benz</span>
+            </div>
+        </div>
+        <div class="mainbody">
+
+            <div id="sidebar">
+                <button id="models" onclick="document.location='index2.html'">Our models</button>
+                <button id="buy">Buy online</button>
+                <button id="Finance">Finance</button>
+                <button id="Services">Services</button>
+                <button id="Brand">Our Brand</button>
+            </div>
+            <video id="vid" autoplay muted loop controls>
+                <source width="1000px" src="vid.mp4" type="video/mp4">
+
+            </video>
+
+        </div>
+    </div>
+    <div class="Part2 ">
+        <p class="part2title">Our Recommendations.</p>
+
+        <div class="line1">
+            <div class="line1in">
+                <div class="line1element element1"><img class=""
+                        src="https://www.mercedes-benz.co.in/content/dam/hq/personalization/campaignmodule/16x9/v214_16x9.jpg?im=Resize=(1109,624)&c=12352657 "
+                        alt=""></div>
+                <div class="layer1"><button>Learn More</button>
+                    <p>&emsp;Own your Mercedes-Benz the smart way with STAR Agility+</p>
+                    <p>&emsp;ADVANTAGE YOU.</p>
+                </div>
+                <div class="line1element element2"><img class="line1img"
+                        src="https://www.mercedes-benz.co.in/content/dam/india/passengercars/teasers-homepage/eqa-teaser.jpg/1744895530711.jpg?im=Crop,rect=(4443,0,4114,7313);Resize=(1200)"
+                        alt="">
+                        
+                </div>
+                <div class="layer2">
+                    <button>Find available cars</button>
+                    <p> &emsp; The All new EQA</p>
+                    <p>&emsp;Switch on to Stand out.</p>
+                    
+                </div>
+
+                <div class="line1element element3"><img
+                        src="https://www.mercedes-benz.co.in/content/dam/india/passengercars/new-homepage/GLA.jpg/1744895530711.jpg?im=Crop,rect=(0,0,1536,2731);Resize=(1200)"
+                        alt="" class="line1img"></div>
+                <div class="layer3">
+                    <button>Find available cars</button>
+                    <p>&emsp;
+                        The new GLA</p>
+                    <p>&emsp;Dynamic all the way.
+                    </p>
+                </div>
+                <div class="line1element element4"><img
+                        src="https://www.mercedes-benz.co.in/content/dam/retail/india/amgc_63image_adapt.jpg/1744895530711.jpg?im=Crop,rect=(0,0,1536,2731);Resize=(1200)"
+                        alt="" class="line1img"></div>
+                <div class="layer4">
+                    <button>Learn more</button>
+                    <p> &emsp;Performance</p>
+                    <p>
+                        &emsp;
+                        The all-new Mercedes-AMG C 63 S E</p>
+                    <p>&emsp;Here's to the heart.</p>
+                </div>
+                <div class="line1element element5"><img
+                        src="https://www.mercedes-benz.co.in/content/dam/hq/passengercars/campaigns/compact-car-range/benefits/12-2023/images/mercedes-benz-compact-car-range-benefits-mbux-1884x1884-12-2023.jpg/1744895530711.jpg?im=Crop,rect=(412,0,1060,1884);Resize=(1200)"
+                        alt="" class="line1img"></div>
+                <div class="layer5">
+                    <button>Find available cars</button>
+                    <p>&emsp; Browse & Buy your Mercedes-Benz</p>
+                    <p>&emsp;Explore our Online Store.
+
+                       </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="part3">
+        <p>The perfect blend of luxury, sportiness and performance: Discover </p>
+        <p>our latest models</p>
+        <span><button onclick="document.location='index2.html'">Discover all models</button>
+            <button onclick="document.location='index2.html'">Discover Electric models</button></span>
+        <div class="samplecars">
+            <div class="samplecarslist">Limosuine <img
+                    src="https://assets.oneweb.mercedes-benz.com/iris/iris.png?COSY-EU-100-1713d0VXq0WeqtyO67PobzIr3eWsrrCsdRRzwQZv9IZbMw3SGtGyStsd2vtcUfp8cXGEubYJ0l36xOB2NS5bApj7bI5uVKDQC31MrkzNwTbm7jZ7fhKVFsM%25vq9UkyLRDO6Yax7XhrH1KJin8wv8noiZL7IM4FaSjTg9Hhn6PD8%256SeWAmItsd5spcUfCONXGEzbXJ0l7DhOB2KWcbApvIXI5uLQDQC3ig7kzN4PZm7j06mhKVBKF%25vqAJqyLR53VYaxCkYrH1zntn8w7oboiZKeXM4FvswTg9wtn6PDGP6SeW0h%25tXSMNV31yyLRiXJYnydjHroY4Jdn8wzOyoiZC5lM4F8CJTg9jx26PDePoSeWsKjtsdUHVcUaqKDTb32VXq0hV0A3f%25XEd9BBpxb1loE1JnwxV4V%25d%25CWLH59zW0uB16E1&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=400&im=Crop,rect=(0,0,400,187),gravity=North"
+                    alt=""></div>
+            <div class="samplecarslist">SUV Range <img
+                    src="https://media.oneweb.mercedes-benz.com/images/dynamic/europe/IN/465600/X24/iris.png?q=COSY-EU-100-1713d0VXqr8gqtyO67PobzIr3eWsrrCsdRRzwQZgk4ZbMw3SGtlaWtsd2H%25cUfgUfXGEzymJ0l7%25fOB2XgRbApJkyI5us5xQC3UkTkzNGLdm7j0M3hKVHtc%25YhD3Lyr%258cDYax4j8rH1sItn8wUI2oiZGBEM4F0APTg9Ben6PDAs6SeWZSjtsdF63cUf99kXGEB6SJ0lIMhOB2iMwbAp0PyI5uBcDQC3AiZkzN5Obm7jd03hKVfzh%25vqhrdyLRmYDYaxh4SrH1lCin8w2TyoiZpQIM4F6CFTg9hhO6PKNCZnX2f3SNYL5Z3HDkSW9wUwopoL24PvEa2zq7dXrCgQ&imgt=P27&bkgnd=9&pov=BE040&uni=m&width=400&im=Crop,rect=(0,0,400,187),gravity=North"
+                    alt=""></div>
+            <div class="samplecarslist">Roadsters <img
+                    src="https://assets.oneweb.mercedes-benz.com/iris/iris.png?COSY-EU-100-1713d0VXq0WFqtyO67PobzIr3eWsrrCsdRRzwQZUnRZbMw3SGtGyWtsd2HdcUfp8qXGEubmJ0l3ItOB2NQnbApjtwI5uVKMQC31C1kzNwzdm7jZeohKVFsW%25vqCtTyLRzcyYax7oxrH1Kj1n8wsOcoiZUidM4FGTlTg90k26PDMI6SeWzXRtsd7YNcUfKM6XGEv5RJ0lgYlOB2PBqbApedlI5usQMQC3UvrkzNGLNm7j0afhKVHXt%25vq8cXyr%25kWfDpJJ0lCrnOIJRdAbQOznRI5uefuQC3PS9kzN5P6m7jdA9hKVvsW%25vqLUayLRaARYaBEUVmMDZfrE8OYTwHxXr1RjiiF2MpwQ1pnIu2fzfXRXPq0Agjeq89iph1p&imgt=P27&bkgnd=9&pov=BE040,DZO&uni=m&width=400&im=Crop,rect=(0,0,400,187),gravity=North"
+                    alt=""></div>
+        </div>
+    </div>
+    <div class="part4">
+        <p class="title">Service and accessories.</p>
+        <div class="services">
+            <div class="servicesblock"><img
+                    src="https://www.mercedes-benz.co.in/content/dam/hq/passengercars/services/mercedes-me/imgLPtextmediammeid.jpg/1740015975368.jpg?im=Crop,rect=(0,412,1884,1060);Resize=(1280)"
+                    alt="">
+                <p>Digital extras for your Mercedes-Benz</p>
+                <p>Simply book additional digital extras and experience your Mercedes-Benz in a new way.</p>
+                <button>Buy online now</button>
+            </div>
+            <div class="servicesblock"><img
+                    src="https://www.mercedes-benz.co.in/content/dam/india/passengercars/maintenance/service-packages-image1.jpg/1740065262547.jpg?im=Crop,rect=(0,71,764,430);Resize=(1280)"
+                    alt="">
+                <p>Maintenance and Service</p>
+                <p> Enjoy Peace of Mind with Mercedes-Benz Service, Maintenance and Repair.</p>
+                <button>Learn more</button>
+            </div>
+            <div class="servicesblock"><img
+                    src="https://www.mercedes-benz.co.in/content/dam/india/passengercars/new-homepage/mbcs-g-class_56A7011.jpeg/1740065391112.jpg?im=Crop,rect=(0,844,2668,1500);Resize=(1280)"
+                    alt="">
+                <p>Mercedes-Benz Collection Items</p>
+                <p> Discover Mercedes-Benz Collection: Superior quality, iconic design, crafted with passion.</p>
+                <button>Explore an outlet near you</button>
+            </div>
+        </div>
+    </div>
+    <div class="part5">
+        <div class="grid5">
+            <div class="part5element part51"><img
+                    src="https://www.mercedes-benz.co.in/content/dam/hq/passengercars/cars/cla/cla-saloon-c174-pi/pad/stage/01-2025/images/mercedes-benz-cla-c174-stage-3840x3840-01-2025.jpg/1741839434987.jpg?im=Crop,rect=(1593,869,2075,2075);Resize=(1680)"
+                    alt=""></div>
+            <div class="part5element part52">
+                <p>The all new CLA</p>
+
+                <p style="font-weight: 900; font-size: x-large; color: #000;">Experience the future of driving with
+                    all-new all-electric CLA.</p>
+                <p>With a sleeker silhouette, elegant cockpit complemented by intuitive technology, the new CLA is a
+                    gamechanger.</p>
+                <button>Learn more</button>
+            </div>
+            <div class="part5element part53">
+                <p style="font-weight: 900; font-size: x-large; color: #000;">DEFINING CLASS since 1886.
+                </p>
+                <p>A lot has changed since the invention of the automobile in 1886. With each decade, we have been able
+                    to further develop the technology that began with us - and still do today. This is how a car became
+                    more than a car.</p>
+                <button>Learn more</button>
+            </div>
+            <div class="part5element part54"><img
+                    src="https://www.mercedes-benz.com/content/dam/brandhub/assets/vehicles/g-class/g-class-special-models-extraordinary/layered-gallery/11-2022/images/mercedes-benz-g-class-special-models-layered-gallery-image-01-1700x1700-11-2022.jpg/_jcr_content/renditions/image-crop-default.jpeg/1730309677732.jpg?im=Resize=(1280);Crop,rect=(0,0,1280,1280)"
+                    alt=""></div>
+            <div class="part5element part55"><img
+                    src="https://www.mercedes-benz.co.in/content/dam/india/passengercars/new-homepage/7798202_DefiningClass_still_KV2_300SL_Gullwing_high_RGB.jpg/1740065330530.jpg?im=Crop,rect=(0,0,1080,1080);Resize=(1680)"
+                    alt=""></div>
+            <div class="part5element part56">
+                <p style=" font-weight: 900; font-size: x-large; color: #000;">History and brand world.
+                </p>
+                <p>The Mercedes star is more than just a logo. Mercedes-Benz stands for exciting experiences based on
+                    timeless design, cutting-edge technology and attention to detail.</p>
+                <button>Learn more</button>
+            </div>
+        </div>
+    </div>
+    <div class="part6">
+        <div class="last">
+            <div class="box">Mercedes-Benz Store</div>
+            <div class="box">Dealer locator</div>
+            <div class="box">Configurator</div>
+            <div class="box">fianance & Insurance</div>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="https://www.facebook.com/MercedesBenzIndia"><img src="1384005.png" alt=""></a>
+        <a href="https://x.com/mercedesbenzind"><img src="X.png" alt=""></a>
+        <a href="https://www.youtube.com/c/MercedesBenzInd"><img src="youtube.png" alt=""></a>
+        <a href="https://www.instagram.com/mercedesbenzind/"><img src="insta.png" alt=""></a>
+        <a href="https://www.linkedin.com/company/mercedes-benz-india/"><img src="linkedin.png" alt=""></a>
+<p style="font-size: x-small;">  © 2024. Mercedes-Benz India Pvt. Ltd. All Rights Reserved (provider) </p>
+    </div>
+    <script>
+        function togglesidebar() {
+            var list = document.getElementById("sidebar");
+            if (list.style.display === "none") {
+                list.style.display = "flex";
+            } else {
+                list.style.display = "none";
+            }
+        }
+        function video() {
+            var list = document.getElementById("vid");
+            if (list.style.display === "none") {
+                list.style.display = "inline";
+            } else {
+                list.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
